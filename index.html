@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+
+
+    <title>Lucky Sevun</title>
+
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+
+            margin: auto auto auto auto;
+            width: 1150px;
+        }
+
+        /*상단바, nav */
+
+        .topBar {
+            background-color: rgb(245, 245, 245);
+            color: rgb(15, 15, 15);
+            padding: 0.4rem;
+
+            font-family: 'GmarketSansMedium';
+            font-size: 12px;
+            padding-top: 8px;
+            padding-left: 15px;
+            z-index: 9;
+
+            display: flex;
+
+            margin: 0px;
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+
+        .topBar_name {
+            font-family: 'GmarketSansBold';
+            margin-right: 20px;
+
+        }
+
+        .topBar>span>a {
+            margin-right: 0px;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+
+        }
+
+        .topBar>span>a:hover {
+            margin-right: 0px;
+
+            color: white;
+            background-color: rgb(29, 29, 29);
+            text-decoration: none;
+
+        }
+
+
+        .nav-right-buttons {
+            display: flex;
+
+            position: absolute;
+            right: 10px;
+        }
+
+        .nav-right-buttons>div {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+
+            margin: 2px auto auto 8px;
+            /* margin-left: 8px; */
+        }
+
+        .btnGreen {
+            background-color: rgb(21, 179, 21);
+        }
+
+        .btnYellow {
+            background-color: rgb(243, 207, 44);
+        }
+
+        .btnRed {
+            background-color: rgb(224, 77, 77);
+        }
+
+        /* 헤더파트 */
+
+        .header {
+            /* background: linear-gradient(to bottom, black 80%,rgba(0,0,0,0.1) 92% ,rgba(0,0,0,0)); */
+            background-color: black;
+            height: 620px;
+            padding: 60px 50px;
+            font-family: 'Press Start 2P', cursive;
+            color: rgb(21, 187, 21);
+            margin-bottom: 150px;
+        }
+
+        .header_middle {
+            display: flex;
+            margin-left: 130px;
+        }
+
+        .header_title {
+            /* top: 150px;
+            left: 120px; */
+            /* background-color: #e69113; */
+            font-size: 70px;
+            line-height: 1.1;
+        }
+
+        .cursor {
+            top: 150px;
+            left: 120px;
+
+            width: 50px;
+            height: 70px;
+
+            border-bottom: rgb(21, 187, 21) solid 15px;
+            animation: blink 1s step-end infinite;
+
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* display: flex;
+    align-items: center; */
+
+
+        /* 불이모지 파트 */
+
+        .fire {
+            padding: 2rem;
+            /* background-color: brown; */
+            background: linear-gradient(-30deg, #f043bc 5%, #e92b2b 30%, #e69113);
+            /* display: flex;
+            justify-content: center; */
+        }
+
+        .fire_button {
+            width: 200px;
+            height: 90px;
+            border-radius: 55px;
+            background-color: white;
+
+            margin: auto;
+            margin-bottom: 5px;
+
+            display: flex;
+            /* justify-content: start; */
+
+        }
+
+        .fire_circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 0px;
+            /* background: radial-gradient(rgb(251, 255, 14) 50%, rgb(5, 247, 255) 70% , rgb(129, 0, 86) 98%); */
+            background: radial-gradient(rgb(255, 255, 255) 50%, rgb(243, 238, 231) 70%, rgb(199, 122, 7) 90%);
+            margin: 5px 5px 5px 5px;
+
+
+            display: flex;
+            justify-content: center;
+
+
+        }
+
+        .em-fire {
+            vertical-align: middle;
+            font-size: 35px;
+            margin: auto;
+        }
+
+        .fire_count {
+            margin: 24px 28px auto;
+            font-family: 'GmarketSansMedium';
+            font-size: 30px;
+            transform: translate();
+        }
+
+        /* 왕관 */
+        .kingdom {
+            position: absolute;
+            top: 1612px;
+            left: 877px;
+        }
+
+        /* 팀 설명 파트 */
+
+        .team_desc {
+            height: 400px;
+            background-color: #bde6dd;
+            margin-bottom: 200px;
+            text-align: center;
+        }
+
+
+        /* 팀메이트 파트 */
+
+        .title_teammates {
+            font-family: 'GmarketSansBold';
+            text-align: center;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+
+        .card1 {
+            /* background-color: antiquewhite; */
+            /* border: 1px dotted red; */
+
+            /* width: 50vw; */
+            /* max-width: 800px; */
+            /* min-width: 1000px; */
+
+            padding: 2rem 0px 3rem 0px;
+            margin: auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .card1>div {
+            width: 300px;
+            /* height: 500px; */
+            margin: auto 20px auto 20px;
+        }
+
+
+        .card-img {
+            text-align: center;
+            margin: 30px auto 30px auto;
+        }
+
+        .card-img>img {
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+
+            text-align: center;
+        }
+
+
+
+        .card-contents {
+            background-color: rgb(252, 252, 252);
+            border-radius: 20px;
+            min-height: 250px;
+            padding: 20px;
+            margin: auto 15px 5px 15px;
+            border: solid 1px #f3f3f3;
+            box-shadow: 15px 15px 30px 0px rgba(128, 128, 128, 0.29);
+        }
+
+        .card-firstLine {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .card-name {
+            font-family: 'GmarketSansMedium';
+            font-size: 25px;
+            margin: 5px;
+        }
+
+        .card-mbti {
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 13px;
+        }
+
+        .card-comment {
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card-style {
+            color: rgba(128, 128, 128, 0.9);
+            font-size: 0.72rem;
+            font-weight: bold;
+            margin-bottom: 0.1rem;
+        }
+
+        .card-link {
+            display: flex;
+            justify-content: end;
+
+            margin-right: 15px;
+        }
+
+        .del-link {
+            color: white;
+            font-size: 15px;
+
+            background-color: rgb(240, 120, 84);
+
+            padding: 5px 10px 5px 10px;
+            border: 0;
+            border-radius: 5px;
+            left: 210px;
+            position: relative;
+        }
+
+        /* 구역 참고용 */
+        /* {
+    .card1-1 {
+    background-color: rgb(245, 239, 165);
+    border: 2px solid black;
+    }
+
+    .card1-2 {
+    background-color: rgb(116, 179, 155);
+    border: 2px solid rgba(253, 34, 89, 0.993);
+    }
+
+    .card1-3 {
+    background-color: rgb(216, 255, 76);
+    border: 2px solid rgba(107, 217, 231, 0.993);
+    }
+
+    .card2-1 {
+    background-color: rgb(216, 255, 76);
+    border: 2px solid rgba(107, 217, 231, 0.993);
+
+    }
+
+    .card2-2 {
+    background-color: rgb(216, 255, 76);
+    border: 2px solid rgba(107, 217, 231, 0.993);
+    }
+    } */
+        /* TOP버튼 파트 */
+        .top_button {
+            background-color: rgb(255, 255, 255);
+            box-shadow: #e4e4e4 0px 0px 15px 0px;
+
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            text-align: center;
+
+            display: flex;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        /* 방명록 파트 */
+        .reply {
+            background-color: black;
+            font-size: 10px;
+            text-align: center;
+
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+        }
+
+        .visit_desc {
+            background-color: #e6d1bd;
+            text-align: center;
+            font-size: 17px;
+            text-decoration: underline;
+
+        }
+
+        .size2 {
+            font-size: 18px;
+            color: rgb(121, 195, 10);
+        }
+
+        /* 클릭 후 팝업창 */
+        .mypop_up {
+            width: 95%;
+            max-width: 500px;
+            margin: 10px auto px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+            position: static;
+            display: none;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+            background-color: white;
+            position: fixed;
+            top: 130px;
+            left: 700px;
+            display: none;
+        }
+
+        .vpost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+            background-color: white;
+            position: fixed;
+            top: 40px;
+            left: 700px;
+            display: none;
+        }
+
+        /* button1팀원작성//button2방명록작성//button0방명록보기 */
+        .button1 {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 140px;
+            transition: all 0.5s;
+            position: absolute;
+            cursor: pointer;
+            top: 677px;
+        }
+
+        .button1 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button1 span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -10px;
+            transition: 0.5s;
+        }
+
+        .button1:hover span {
+            padding-right: 23px;
+        }
+
+        .button1:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .button3 {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+            width: 140px;
+            transition: all 0.5s;
+            position: absolute;
+            cursor: pointer;
+            top: 757px;
+        }
+
+        .button3 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button3 span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -10px;
+            transition: 0.5s;
+        }
+
+        .button3:hover span {
+            padding-right: 23px;
+        }
+
+        .button3:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .button2 {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 17px;
+            padding: 10px;
+            width: 140px;
+            transition: all 0.5s;
+            position: absolute;
+            cursor: pointer;
+            top: 677px;
+            left: 1377px;
+        }
+
+        .button2 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button2 span:after {
+            content: '\00AB';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 10px;
+            transition: 0.5s;
+        }
+
+        .button2:hover span {
+            padding-left: 22px;
+        }
+
+        .button2:hover span:after {
+            opacity: 1;
+            left: 0;
+        }
+
+        .button0 {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 17px;
+            padding: 10px;
+            width: 140px;
+            transition: all 0.5s;
+            position: absolute;
+            cursor: pointer;
+            top: 757px;
+            left: 1377px;
+        }
+
+        .button0 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button0 span:after {
+            content: '\00AB';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 10px;
+            transition: 0.5s;
+        }
+
+        .button0:hover span {
+            padding-left: 22px;
+        }
+
+        .button0:hover span:after {
+            opacity: 1;
+            left: 0;
+        }
+
+        /* 팀메이트 이미지 호버 */
+        .goodhover figure {
+            position: relative;
+        }
+
+        .goodhover figure::before {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            z-index: 2;
+            display: block;
+            content: '';
+            width: 50%;
+            height: 100%;
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+            -webkit-transform: skewX(-25deg);
+            transform: skewX(-25deg);
+        }
+
+        .goodhover figure:hover::before {
+            -webkit-animation: shine .75s;
+            animation: shine .75s;
+            transition: 0.5s;
+        }
+
+        @-webkit-keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        @keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        /* 방문자 */
+        .visitors {
+            margin: 20px auto 10px auto;
+            width: 100%;
+            max-width: auto;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            listing();
+        });
+
+        $(document).ready(function () {
+            listing2();
+        });
+
+        $(document).ready(function () {
+            listing3();
+        });
+
+        function posting() {
+            let visit = $('#visit').val()
+            let vcom = $('#vcom').val()
+
+            let formData = new FormData();
+            formData.append("visit_give", visit);
+            formData.append("vcom_give", vcom);
+
+
+            fetch("/visit", { method: "POST", body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data["msg"]);
+                    window.location.reload();
+                })
+        }
+
+
+        // 팀원등록 post
+        function posting_t() {
+            let image = $('#image').val()
+            let name = $('#name').val()
+            let mbti = $('#mbti').val()
+            let comment = $('#comment').val()
+            let sty = $('#sty').val()
+            let good = $('#good').val()
+            let url = $('#url').val()
+
+            let formData = new FormData();
+            formData.append("image_give", image);
+            formData.append("name_give", name);
+            formData.append("mbti_give", mbti);
+            formData.append("comment_give", comment);
+            formData.append("sty_give", sty);
+            formData.append("good_give", good);
+            formData.append("url_give", url);
+
+            fetch("/team", { method: "POST", body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data["msg"]);
+                    window.location.reload();
+                });
+        }
+
+        //팀원 등록 겟
+        function listing() {
+            fetch("/team").then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                $('#teamcard-box').empty()
+                rows.forEach((a) => {
+                    let image = a['image']
+                    let name = a['name']
+                    let mbti = a['mbti']
+                    let comment = a['comment']
+                    let sty = a['sty']
+                    let good = a['good']
+                    let url = a['url']
+                    let temp_html = `<div class="card1-1">
+                                        <div class="goodhover">
+                                            <figure>
+                                                <div class="card-img">
+                                                    <a class="card-img" href="${url}" target="_blank">
+                                                        <img src=${image}" onerror="this.src='${image}';" alt="팀원사진">
+                                                    </a>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                            <div class="card-contents">
+                                                <div class="card-firstLine">
+                                                    <div class="card-name">이름:${name}</div>
+                                                    <div class="card-mbti"><br>${mbti}</div>
+                                                </div>
+                                                <div class="card-comment">
+                                                    ${comment}
+                                                </div>
+                                                <div class="card-style">
+                                                    스타일 : ${sty}
+                                                </div>
+                                                <div class="card-style">
+                                                    장점 : ${good}
+                                                </div>
+                                            </div>
+                                            <button onclick="delbut()" type="button" class="del-link">삭제</button>
+                                        </div>`
+                    $('#teamcard-box').append(temp_html)
+                })
+            })
+        }
+
+        // 버튼(열기, 닫기)
+        function open_box() {
+            $("#post-box").show();
+        }
+        function close_box() {
+            $("#post-box").hide();
+        }
+
+        function open_box1() {
+            $("#comment-box").show();
+        }
+        function close_box1() {
+            $("#comment-box").hide();
+        }
+
+        function open_box0() {
+            $("#comments-box2").show();
+        }
+        function close_box0() {
+            $("#comments-box2").hide();
+        }
+
+        function open_box2() {
+            $("#post-box2").show();
+        }
+        function close_box2() {
+            $("#post-box2").hide();
+        }
+
+        function Searching() {
+            $("#post-box2").hide();
+            $("#post-box3").show();
+        }
+
+        function close_box3() {
+            $("#post-box3").hide();
+        }
+
+        // 방명록 post
+        function posting() {
+            let visit = $('#visit').val()
+            let vcom = $('#vcom').val()
+
+            let formData = new FormData();
+            formData.append("visit_give", visit);
+            formData.append("vcom_give", vcom);
+
+
+            fetch("/visit", { method: "POST", body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data["msg"]);
+                    window.location.reload();
+                })
+        }
+
+        //방명록 get
+        function listing2() {
+            fetch("/visit").then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                $('#comments-box').empty()
+
+
+                rows.forEach((a) => {
+                    let visit = a['visit']
+                    let vcom = a['vcom']
+                    let temp_html = `<div class="text-box" id = "comments-box" >
+                                        <br class="line-height:30%;"><p>${visit} : ${vcom}</p><br class="line-height:30%;">
+                                    </div>`
+                    $('#comments-box').append(temp_html)
+                })
+            })
+        }
+
+        function listing3() {
+            fetch("/find").then((res) => res.json()).then((data) => {
+                let row = data['result']
+
+                let temp_html = `<div class="text-box" id = "comments-box" >
+                                        <br class="line-height:30%;"><p>${visit} : ${vcom}</p><br class="line-height:30%;">
+                                    </div>`
+                $('#comments-box').append(temp_html)
+            })
+        }
+
+        // function update() {
+        //     let visit = $('#visit').val()
+        //     let vcom = $('#vcom').val()
+
+        //     let formData = new FormData();
+        //     formData.append("visit_give", visit);
+        //     formData.append("vcom_give", vcom);
+
+        // fetch("/change", { method: "POST", body: formData })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         alert(data["msg"]);
+        //         window.location.reload();
+        //     })
+
+        // 방명록 삭제
+        function del() {
+            let nic = $('#nic').val()
+            let formData = new FormData();
+            formData.append("delvisit_give", nic);
+
+            fetch("/del", { method: "POST", body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data["msg"]);
+                    window.location.reload();
+                })
+        }
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!-- 상단 바 -->
+
+    <nav class="topBar">
+        <span class="topBar_name">Lucky Sevun</span>
+        <span><a href="#header">Home</a></span>
+        <span><a href="#team">Team</a></span>
+        <span><a href="#teammates">Teammates</a></span>
+
+        <div class="nav-right-buttons">
+            <div class="btnGreen"></div>
+            <div class="btnYellow"></div>
+            <div class="btnRed"></div>
+        </div>
+    </nav>
+
+    <!-- 메인 이미지 헤더 파트 -->
+
+    <header id="header" class="header">
+        <div class='header_upper'>
+            Hello world! <br>
+            &nbsp;&nbsp;&nbsp;string camp = tommorrow; <br>
+            &nbsp;&nbsp;&nbsp;string track = spring; <br>
+            &nbsp;&nbsp;&nbsp;int gen = 6; <br>
+            &nbsp;&nbsp;&nbsp;int teamNum = 7; <br>
+            &nbsp;&nbsp;&nbsp;string teamName =<br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="header_middle">
+            <div><span class="header_title">LUCKY SEVUN</span></div>
+            <div class="cursor"></div>
+        </div>
+        <div class="header_lower">
+            <br>
+            <br>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;while(!we_make_it) {<br>
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br> -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;study;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get_in_trouble;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overcome;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+        </div>
+    </header>
+
+    <!-- 팀 설명 파트 -->
+    <div id="team" class="ourTeam">
+        <h1 class="title_teammates">Our Team</h1>
+        <div class="team_desc">
+            팀소개 한줄<br>
+            우리 팀의 약속<br>
+            우리 팀만의 특징<br>
+            궁극적 목표<br>
+        </div>
+    </div>
+
+    <!--팀원 등록_버튼-->
+    <button onclick="open_box()" type="button" class="button1" style="vertical-align:middle"><span>팀원등록 </span></button>
+
+    <!--팀원 수정 버튼-->
+    <button onclick="open_box2()" type="button" class="button3" style="vertical-align:middle"><span>팀원수정
+        </span></button>
+
+    <!--팀원 등록_화면-->
+    <div class="mypop_up" id="post_nbox">
+        <div class="tpost">
+            <button onclick="posting_t()" type="button" id="y_button">등록하기</button>
+            <button onclick="close_nbox()" type="button" id="n_button">
+                닫기
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <!--왕관이미지-->
+    <img class="kingdom" src="https://img.freepik.com/premium-vector/crown-illustration-design_617585-2235.jpg"
+        alt="My Image" width="150" height="100">
+
+
+    <!-- 팀메이트 파트 -->
+    <div class="teammates">
+        <h1 class="title_teammates">Teammates</h1>
+        <div class="card1 row row-cols-1 row-cols-md-4 g-4" id="teamcard-box">
+            <div class="card1-1">
+                <div class="card-img goodhover">
+                    <img src="https://ca.slack-edge.com/T043597JK8V-U054PFYHF5X-088943791073-512">
+                </div>
+                <div class="card-contents">
+                    <div class="card-firstLine">
+                        <div class="card-name"> 권진혁</div>
+                        <div class="card-mbti"> enfp</div>
+                    </div>
+                    <div class="card-comment">
+                        저는 코딩을 합니다.
+                        그렇지만 내일은 코딩을 합니다.
+                    </div>
+                    <div class="card-style">
+                        스타일있는 스타일
+                    </div>
+                    <div class="card-style">
+                        협업스타일
+                    </div>
+                </div>
+                <div class="card-link">
+                    <button onClick="location.href=''">Link</button>
+                </div>
+            </div>
+            <div class="card1-2">
+                <div class="card-img">
+                    <img src="https://ca.slack-edge.com/T043597JK8V-U056FFYK0F3-91f8edc146f8-512" alt="...">
+                </div>
+                <div class="card-contents">
+                    <div class="card-firstLine">
+                        <div class="card-name"> 김현우</div>
+                        <div class="card-mbti"> intp</div>
+                    </div>
+                    <div class="card-comment">
+                        누군가가 하는 게 겁나 쉬워보인다면 그 사람이 고인물인 것이다.
+                    </div>
+                    <div class="card-style">
+                        스타일있는 스타일
+                    </div>
+                    <div class="card-style">
+                        협업스타일
+                    </div>
+                </div>
+                <div class="card-link">
+                    <button onClick="location.href=''">Link</button>
+                </div>
+            </div>
+            <div class="card1-3">
+                <div class="card-img">
+                    <img src="https://ca.slack-edge.com/T043597JK8V-U0545M1F4EA-g34ecb514d06-512" alt="...">
+                </div>
+                <div class="card-contents">
+                    <div class="card-firstLine">
+                        <div class="card-name"> 정해동</div>
+                        <div class="card-mbti"> entp</div>
+                    </div>
+                    <div class="card-comment">
+                        내 동생은 백엔드 엔지니어.
+                    </div>
+                    <div class="card-style">
+                        스타일있는 스타일
+                    </div>
+                    <div class="card-style">
+                        협업스타일
+                    </div>
+                </div>
+                <div class="card-link">
+                    <button onClick="location.href=''">Link</button>
+                </div>
+
+            </div>
+
+            <div class="card1-4">
+                <div class="card-img">
+                    <img src="https://ca.slack-edge.com/T043597JK8V-U054PFYHF5X-088943791073-512">
+                </div>
+                <div class="card-contents">
+                    <div class="card-firstLine">
+                        <div class="card-name"> 권진혁</div>
+                        <div class="card-mbti"> enfp</div>
+                    </div>
+                    <div class="card-comment">
+                        저는 코딩을 합니다.
+                        그렇지만 내일은 코딩을 합니다.
+                    </div>
+                    <div class="card-style">
+                        스타일있는 스타일
+                    </div>
+                    <div class="card-style">
+                        협업스타일
+                    </div>
+                </div>
+                <div class="card-link">
+                    <button onClick="location.href=''">Link</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 불이모지 파트 -->
+
+        <div class="fire">
+            <div class="fire_button">
+                <button class="fire_circle" id="fireCircle">
+                    <i class="em em-fire" aria-role="presentation" aria-label="FIRE"></i>
+                </button>
+                <div class="fire_count">0</div>
+            </div>
+            <h2 style="color:white; text-align: center;">Fire!</h2>
+        </div>
+
+        <script> //숫자 카운트 Script
+            $('#fire_count').empty();
+            $('#fire_count').append();// 여기에 토탈 fire 수 데이터 베이스 가져오기//
+
+            let count = 0; //DB연결되면 삭제
+            let fireCircleBtn = document.getElementById("fireCircle");
+            fireCircleBtn.addEventListener("click", countPlus);
+
+            function countPlus() {
+                count++;
+                document.querySelector(".fire_count").innerHTML = count;
+                //데이터 베이스에 fire 수 업데이트 시키기//
+            }
+        </script>
+
+        <!-- 방명록 파트 -->
+        <div class="reply" onclick="open_box1()" type="button">
+            <br>
+            <p class="size2">{방명록:}<br>{작성:}</p>
+        </div>
+
+        <!-- TOP버튼 파트 -->
+        <a href="#header">
+            <div class="top_button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgb(224, 224, 224)"
+                    class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16" style="margin: auto; padding-bottom:6px;">
+                    <path
+                        d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+                </svg>
+            </div>
+        </a>
+
+
+        <!--방명록 수정 삭제버튼-->
+        <button onclick="open_box1()" type="button" class="button2" style="vertical-align:middle2"><span>방명록수정
+            </span></button>
+        <button onclick="open_box0()" type="button" class="button0" style="vertical-align:middle2"><span>방명록삭제
+            </span></button>
+
+        <!--방명록 수정 페이지-->
+        <div class="mypop_up" id="vcom-box">
+            <!--방명록 > 등록페이지 버튼-->
+            <div class="vcom1">
+                <button onclick="posting_v()" type="button" id="y_button">저장하기</button>
+                <button onclick="close_vbox()" type="button" id="n_button">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--방명록 화면-->
+        <div class="mypop_up" id="vcom-box">
+            <!--방명록 > 등록페이지 버튼-->
+            <div class="vcom1">
+                <button onclick="posting_v()" type="button" id="y_button">저장하기</button>
+                <button onclick="close_vbox()" type="button" id="n_button">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--팀원 정보 수정_대상 선택-->
+        <div class="mypost" id="post-box2">
+            <div class="form-floating mb-3">
+                <input id="fname" type="fname" class="form-control" placeholder="Leave a keyword here" />
+                <label>바꿀 팀원 이름</label>
+            </div>
+            <div class="mybtns">
+                <button onclick="Searching()" type="button" class="btn btn-danger">확인</button>
+                <button onclick="close_box2()" type="button" class="btn btn-outline-dark">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--팀원 정보 수정_정보 수정-->
+        <div class="mypost" id="post-box3">
+            <div class="mybtns">
+                <button onclick="edit()" type="button" class="btn btn-danger">수정하기</button>
+                <button onclick="close_box3()" type="button" class="btn btn-outline-dark">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--팀원 정보 기록-->
+        <div class="mypost" id="post-box">
+            <div class="form-floating mb-3">
+                <input id="image" type="url" class="form-control" placeholder="name@example.com" />
+                <label>사진 이미지 url</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="name" type="name" class="form-control" placeholder="Leave a keyword here" />
+                <label>이름</label>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">MBTI</label>
+                <select class="form-select" id="mbti" type="mbti">
+                    <option selected>-- 선택하기 --</option>
+                    <option value="ENFP">ENFP</option>
+                    <option value="ENFJ">ENFJ</option>
+                    <option value="ENTP">ENTP</option>
+                    <option value="ENTJ">ENTJ</option>
+                    <option value="ESFP">ESFP</option>
+                    <option value="ESFJ">ESFJ</option>
+                    <option value="ESTP">ESTP</option>
+                    <option value="ESFJ">ESTJ</option>
+                    <option value="INFP">INFP</option>
+                    <option value="INFJ">INFJ</option>
+                    <option value="INTP">INTP</option>
+                    <option value="INTJ">INTJ</option>
+                    <option value="ISFP">ISFP</option>
+                    <option value="ISFJ">ISFJ</option>
+                    <option value="ISTP">ISTP</option>
+                    <option value="ISTJ">ISTJ</option>
+                </select>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="comment" type="comment" class="form-control" placeholder="Leave a keyword here" />
+                <label>자신에 대한 설명</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="sty" type="sty" class="form-control" placeholder="Leave a keyword here" />
+                <label>자신의 스타일과 협업스타일 소개</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="good" type="good" class="form-control" placeholder="Leave a keyword here" />
+                <label>객관적인 자신의 장점</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="url" type="url" class="form-control" placeholder="Leave a keyword here" />
+                <label>블로그 주소</label>
+            </div>
+
+            <div class="mybtns">
+                <button onclick="posting_t()" type="button" class="btn btn-danger">저장하기</button>
+                <button onclick="close_box()" type="button" class="btn btn-outline-dark">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--방명록 정보 기록-->
+        <div class="mypost reply2" id="comment-box">
+            <div class="form-floating mb-3">
+                <input id="visit" type="visit" class="form-control" placeholder="name@example.com" />
+                <label>닉네임</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="vcom" type="text" class="form-control" placeholder="Leave a keyword here" />
+                <label>쓰고 싶은 말</label>
+            </div>
+            <div class="mybtns">
+                <button onclick="posting()" type="button" class="btn btn-danger">저장하기</button>
+                <button onclick="close_box1()" type="button" class="btn btn-outline-dark">
+                    닫기
+                </button>
+            </div>
+        </div>
+
+        <!--방명록 삭제창-->
+        <div>
+            <div class="vpost" id="comments-box2">
+                <div class="form-floating mb-3">
+                    <input id="nic" type="nic" class="form-control" placeholder="name@example.com" />
+                    <label>작성했던 닉네임</label>
+                </div>
+                <div class="mybtns">
+                    <!-- <button onclick="update()" type="button" class="btn btn-danger">수정하기</button> -->
+                    <button onclick="del()" type="button" class="btn btn-danger">삭제하기</button>
+                    <button onclick="close_box0()" type="button" class="btn btn-outline-dark">
+                        닫기
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--방명록 보는 곳-->
+        <div>
+            <div style="line-height:70%;">
+                <div class="visit_desc" id="comments-box">
+                    <p>룰루</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 방문자 -->
+        <div class="visitors">
+            <dt class="title_visit">Today Total</dt>
+            <a href=""><img src="https://www.cutercounter.com/hits.php?id=hxnaxkd&nd=5&style=71" border="0"
+                    alt="best free website hit counter"></a>
+        </div>
+
+</body>
+
+</html>
