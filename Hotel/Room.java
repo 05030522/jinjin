@@ -12,6 +12,9 @@ public class Room {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+    public String getUuid() {
+        return uuid;
+    }
     public String getRoom_id() {
         return roomID;
     }

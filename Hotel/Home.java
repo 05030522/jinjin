@@ -161,7 +161,6 @@ public class Home {
         }
         if (customer.getWallet()>= targetRoom.getPrice()) {
             System.out.println("예약이 확인되었습니다.");
-            System.out.print("\n");
             hotel.addAsset(targetRoom.getPrice());
             customer.subWallet(targetRoom.getPrice());
             hotel.bookRoom(targetRoom);
@@ -180,18 +179,34 @@ public class Home {
         System.out.print("\n");
     }
                 public void checkReservation () {
-
-                    // 고객의 예약 목록(List<Reservation>) 불러오기
-
-                    // 예약 번호(id) 입력 후 예약 목록에서 해당 예약 정보를 받아오기
+                    Hotel hotel = new Hotel();
+                    System.out.print("\n");
+                    System.out.println("--------------------------------------");
+                    System.out.print("[ 예약 내역 ]");
+                    hotel.displayAllReservations();
                 }
 
 
                 public void cancelReservation () {
                     // 고객의 예약 목록(List<Reservation>) 불러오기
-
+                    Hotel hotel = new Hotel();
+                    Customer customer = new Customer(null, null, 0.0f);
+                    System.out.print("\n");
+                    System.out.println("--------------------------------------");
+                    System.out.print("[ 예약 내역 ]");
+                    hotel.displayAllReservations();
                     // 예약 번호(id) 입력 후 예약 목록에서 해당 예약 정보 삭제하기
-
+                    System.out.print("\n");
+                    System.out.println("--------------------------------------");
+                    out.print("취소할 예약건의 ID를 입력해주세요 : ");
+                    Scanner id = new Scanner(System.in);
+                    Room room = new Room(null, null, 0.0f);
+                    String inputId = id.nextLine();
+                    Room targetRoom = room;
+                    String uuid = targetRoom.getUuid();
+                    if (inputId.equals(uuid)) {
+                        hotel.removeReservation(inputId);
+                    }
                     // 객실의 상태를 예약 가능으로 바꾸고, 호텔의 보유자산을 객실 가격 만큼 빼고, 고객의 소지금에 다시 추가한다
                 }
             }
