@@ -4,6 +4,10 @@ import com.sparta.prikbord.dto.PostRequestDto;
 import com.sparta.prikbord.dto.PostResponseDto;
 import com.sparta.prikbord.entity.Post;
 import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 
@@ -21,7 +25,7 @@ public class PostRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Post save(Post post)
+    public Post save(Post post) {
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -32,14 +36,14 @@ public class PostRepository {
 
                     preparedStatement.setString(1, post.getTitle());
                     preparedStatement.setString(2, post.getName());
-                    preparedStatement.setString(3, post.getPoST());
+                    preparedStatement.setString(3, post.getPost());
                     return preparedStatement;
                 },
                 keyHolder);
 
 
-        Long password = keyHolder.getKey().longValue();
-        post.setPassword(id);
+        Long id = keyHolder.getKey().longValue();
+        post.setId(id);
 
         return post;
     }
@@ -52,40 +56,40 @@ public class PostRepository {
             @Override
             public PostResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-                Long password = rs.getLong("password");
+                Long id = rs.getLong("id");
                 String title = rs.getString("title");
                 String name = rs.getString("name");
                 String post = rs.getString("post");
-                return new PostResponseDto(title, name, password, post);
+                return new PostResponseDto(title, name, id, post);
             }
         });
     }
 
-    public void update(Long password, PostRequestDto requestDto) {
+    public void update(Long id, PostRequestDto requestDto) {
         String sql = "UPDATE post SET name = ?, title = ?, post = ? WHERE id = ?";
         jdbcTemplate.update(sql, requestDto.getName(),requestDto.getTitle(), requestDto.getPost(), id);
     }
 
-    public void delete(Long password) {
+    public void delete(Long id) {
         String sql = "DELETE FROM post WHERE id = ?";
-        jdbcTemplate.update(sql, password);
+        jdbcTemplate.update(sql, id);
     }
 
 
-    public Post findById(Long password) {
+    public Post findById(Long id) {
 
         String sql = "SELECT * FROM post WHERE id = ?";
 
         return jdbcTemplate.query(sql, resultSet -> {
             if(resultSet.next()) {
                 Post post = new Post();
-                post.setUsername(resultSet.getString("name"));
-                post.setUsername(resultSet.getString("title"));
-                post.setContents(resultSet.getString("post"));
+                post.setName(resultSet.getString("name"));
+                post.setTitle(resultSet.getString("title"));
+                post.setPost(resultSet.getString("post"));
                 return post;
-            } else {
+            } else
                 return null;
             }
-        }, password);
+        , id);
     }
 }

@@ -19,15 +19,15 @@ public class PostService {
 
     public PostService(PostRepository postRepository) {
 
-        this.PostRepository = postRepository;
+        this.postRepository = postRepository;
     }
 
     public PostResponseDto createPost(PostRequestDto requestDto) {
-        // RequestDto -> Entity
+
         Post post = new Post(requestDto);
         Post savePost = postRepository.save(post);
 
-        // Entity -> ResponseDto
+
         PostResponseDto postResponseDto = new PostResponseDto(post);
 
         return postResponseDto;
@@ -41,28 +41,27 @@ public class PostService {
     public Long updatePost(Long id, PostRequestDto requestDto){
 
 
-        // 해당 메모가 DB에 존재하는지 확인
+
         Post post = postRepository.findById(id);
         if(post != null) {
-            // memo 내용 수정
             postRepository.update(id, requestDto);
 
             return id;
         } else {
-            throw new IllegalArgumentException("선택한 메모는 존재하지 않습니다.");
+            throw new IllegalArgumentException("게시글이 존재하지 않습니다.");
         }
     }
 
-    public Long deleteMemo(Long id) {
-        // 해당 메모가 DB에 존재하는지 확인
+    public Long deletePost(Long id) {
+
         Post post = postRepository.findById(id);
 
         if(post != null) {
-            // memo 삭제
+
             postRepository.delete(id);
             return id;
         } else {
-            throw new IllegalArgumentException("선택한 메모는 존재하지 않습니다.");
+            throw new IllegalArgumentException("게시글이 존재하지 않습니다.");
         }
     }
 }
