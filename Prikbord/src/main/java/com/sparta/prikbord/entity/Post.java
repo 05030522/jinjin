@@ -14,7 +14,7 @@ public class Post {
     private String name;
     private Long id;
     private String post;
-    //시간을 안넣었음
+    //시간을 안넣었음!
 
     public Post(PostRequestDto reqeustDto) {
         this.title= reqeustDto.getTitle();
